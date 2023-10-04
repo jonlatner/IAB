@@ -14,7 +14,7 @@ from sdv.metadata import SingleTableMetadata
 from sdv.single_table import CTGANSynthesizer
 
 # file paths - adapt main_dir pathway
-main_dir = "/Users/jonathanlatner/Google Drive/My Drive/IAB/drechsler_latner_2023/simulation_data/categorical_dim/"
+main_dir = "/Users/jonathanlatner/Documents/GitHub/IAB/simulation_data/categorical_dim/"
 
 data_files = "data_files/"
 original_data = "data_files/original/"

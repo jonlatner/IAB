@@ -10,8 +10,7 @@ import random
 import string
 
 # file paths - adapt main_dir pathway
-#main_dir = "N:/Ablagen/D01700-KEM/Latner/simulation/"
-main_dir = "/Users/jonathanlatner/Google Drive/My Drive/IAB/drechsler_latner_2023/simulation_data/categorical_dim/"
+main_dir = "/Users/jonathanlatner/Documents/GitHub/IAB/simulation_data/categorical_dim/"
 
 data_files = "data_files/"
 original_data = "data_files/original/"
@@ -30,8 +29,8 @@ Create data
 '''
 
 # Dimensions
-rows = [1000, 5000] # Rows/observations
-cols = [10, 15, 20] # Columns/variables
+rows = [50000] # Rows/observations
+cols = [2] # Columns/variables
 vals = [15]  # Number of possible options for each character
 
 df_output = pd.DataFrame()

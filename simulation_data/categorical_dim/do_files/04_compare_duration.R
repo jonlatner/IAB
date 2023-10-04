@@ -15,11 +15,11 @@ library(tidyverse)
 library(synthpop)
 
 # FOLDERS - ADAPT THIS PATHWAY
-main_dir = "N:/Ablagen/D01700-KEM/Latner/simulation/"
-main_dir = "/Users/jonathanlatner/Google Drive/My Drive/IAB/drechsler_latner_2023/simulation_data/categorical_dim/"
+main_dir = "/Users/jonathanlatner/Documents/GitHub/IAB/simulation_data/categorical_dim/"
 
 data_files = "data_files/"
 duration = "duration/"
+graphs = "graphs/"
 
 setwd(main_dir)
 
@@ -49,4 +49,6 @@ df_graph <- ggplot(df_merge, aes(x = vals, y = duration, color = type)) +
   )
 
 df_graph
+
+ggsave(plot = df_graph, paste0(graphs,"graph_compare_duration.pdf"), height = 4, width = 10)
 

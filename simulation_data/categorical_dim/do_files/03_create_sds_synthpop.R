@@ -1,5 +1,4 @@
 # Top commands ----
-# https://alfurka.github.io/2023-01-30-creating-synthetic-values-with-synthepop-cart/
 # Create empty R application (no figures, data frames, packages, etc.)
 # Get a list of all loaded packages
 packages <- search()[grepl("package:", search())]
@@ -15,8 +14,7 @@ library(tidyverse)
 library(synthpop)
 
 # FOLDERS - ADAPT THIS PATHWAY
-main_dir = "N:/Ablagen/D01700-KEM/Latner/simulation/"
-main_dir = "/Users/jonathanlatner/Google Drive/My Drive/IAB/drechsler_latner_2023/simulation_data/categorical_dim/"
+main_dir = "/Users/jonathanlatner/Documents/GitHub/IAB/simulation_data/categorical_dim/"
 
 data_files = "data_files/"
 original_data = "data_files/original/"

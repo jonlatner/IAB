@@ -16,8 +16,7 @@ library(synthpop)
 library(ggh4x) # facet_nested
 
 # FOLDERS - ADAPT THIS PATHWAY
-# main_dir = "N:/Ablagen/D01700-KEM/Latner/little_etal_2021/"
-main_dir = "/Users/jonathanlatner/Google Drive/My Drive/IAB/drechsler_latner_2023/simulation_data/categorical/"
+main_dir = "/Users/jonathanlatner/Documents/GitHub/IAB/simulation_data/categorical_dim/"
 
 data_files = "data_files/"
 original_data = "data_files/original/"

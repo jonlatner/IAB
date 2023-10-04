@@ -13,8 +13,7 @@ from DataSynthesizer.DataDescriber import DataDescriber
 from DataSynthesizer.DataGenerator import DataGenerator
 
 # file paths - adapt main_dir pathway
-#main_dir = "N:/Ablagen/D01700-KEM/Latner/simulation/"
-main_dir = "/Users/jonathanlatner/Google Drive/My Drive/IAB/drechsler_latner_2023/simulation_data/categorical_dim/"
+main_dir = "/Users/jonathanlatner/Documents/GitHub/IAB/simulation_data/categorical_dim/"
 
 data_files = "data_files/"
 original_data = "data_files/original/"
