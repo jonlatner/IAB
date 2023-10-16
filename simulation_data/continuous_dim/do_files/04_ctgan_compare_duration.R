@@ -57,7 +57,7 @@ df_duration$rows <- as.factor(df_duration$rows)
 group_by(df_duration,rows, cols) %>%
   summarise(sum=sum(duration))  %>%
   ungroup() %>%
-  mutate(total=sum(mean))
+  mutate(total=mean(sum))
 
 sum(df_duration$duration)/3
 
