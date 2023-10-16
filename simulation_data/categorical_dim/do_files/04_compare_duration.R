@@ -13,6 +13,7 @@ rm(list=ls(all=TRUE))
 # load library
 library(tidyverse)
 library(synthpop)
+library(ggh4x)
 
 # FOLDERS - ADAPT THIS PATHWAY
 main_dir = "/Users/jonathanlatner/Documents/GitHub/IAB/simulation_data/categorical_dim/"
@@ -31,13 +32,14 @@ df_datasynthesizer <- read.csv(paste0(duration,"duration_datasynthesizer_0.csv")
 
 df_merge <- rbind(df_ctgan,df_synthpop,df_datasynthesizer)
 
+df_merge$rows <- as.factor(df_merge$rows)
+
 # Graph data ----
 
-df_graph <- ggplot(df_merge, aes(x = vals, y = duration, color = type)) +
-  geom_line(linewidth = 1) +
-  # geom_point(size = 2) +
-  facet_grid(cols ~ rows, scales = "free", labeller = labeller(.cols = label_both, .rows = label_both)) +
-  xlab("# values per column") +
+df_graph <- ggplot(df_merge, aes(x = rows, y = duration, fill = type)) +
+  geom_bar(stat="identity",position = position_dodge2()) +
+  facet_nested_wrap( ~ cols + vals, scales = "free", labeller = labeller(.cols = label_both), nrow = 3) +
+  xlab("Observations") +
   ylab("Duration (in seconds)") +
   theme_bw() +
   theme(panel.grid.minor = element_blank(), 
@@ -50,5 +52,5 @@ df_graph <- ggplot(df_merge, aes(x = vals, y = duration, color = type)) +
 
 df_graph
 
-ggsave(plot = df_graph, paste0(graphs,"graph_compare_duration.pdf"), height = 4, width = 10)
+ggsave(plot = df_graph, paste0(graphs,"graph_compare_duration.pdf"), height = 6, width = 10)
 

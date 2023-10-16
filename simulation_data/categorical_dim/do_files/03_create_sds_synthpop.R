@@ -28,9 +28,8 @@ setwd(main_dir)
 
 # Dimensions
 rows = c(1000, 5000) # Rows/observations
-cols = c(10, 15, 20) # Columns/variables
-vals = c(15)  # Number of possible options for each character
-copies <- c(1)
+cols = c(20) # Columns/variables
+vals = c(10,15,20)  # Number of possible options for each character
 
 my.seed = 1230
 
@@ -55,7 +54,7 @@ for (r in rows) {
       time_start <- proc.time()
       
       sds.default <- syn(df_ods,
-                         m = copies,
+                         m = 1,
                          seed = my.seed)
       
       time_end <- proc.time()
@@ -66,15 +65,13 @@ for (r in rows) {
                           rows=r,
                           cols=c,
                           vals=v,
-                          n=copies,
+                          n=1,
                           duration=time_duration)
       df_duration <- rbind(df_duration,output)
       
-      for (j in 1:copies) {
-        synthpop_df <- sds.default$syn[j]
-        write.csv(synthpop_df, file = paste0(synthetic_data,"sds_synthpop_rows_",r,"_cols_",c,"_vals_",v,"_n_",j,".csv"), row.names = FALSE)
-      }
-      
+      synthpop_df <- sds.default$syn
+      write.csv(synthpop_df, file = paste0(synthetic_data,"sds_synthpop_rows_",r,"_cols_",c,"_vals_",v,"_n_1.csv"), row.names = FALSE)
+
     }
   }
 }

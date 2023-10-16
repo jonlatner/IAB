@@ -36,7 +36,7 @@ Create data
 '''
 
 # Dimensions
-rows = [5000] # Rows/observations
+rows = [50000, 100000, 500000] # Rows/observations
 cols = [10] # Columns/variables
 
 df_output = pd.DataFrame()

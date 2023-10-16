@@ -27,8 +27,9 @@ setwd(main_dir)
 # Synthesize data grid ----
 
 # Dimensions
-rows = c("500000") # Rows/observations
-cols = c(10, 20, 30) # Columns/variables
+rows = c("50000","100000", "200000") # Rows/observations
+rows = c("50000") # Rows/observations
+cols = c(10, 15, 20) # Columns/variables
 copies <- c(1)
 
 my.seed = 1230
@@ -65,16 +66,16 @@ for (r in rows) {
                         n=copies,
                         duration=time_duration)
     df_duration <- rbind(df_duration,output)
+
+    saveRDS(sds.default, paste0(data_files,"synthetic/synds_rows_",r,"_cols_",c,"_m_1.rds"))
     
-    for (j in 1:copies) {
-      synthpop_df <- sds.default$syn[j]
-      write.csv(synthpop_df, file = paste0(synthetic_data,"sds_synthpop_rows_",r,"_cols_",c,"_n_",j,".csv"), row.names = FALSE)
-    }
-    
+    synthpop_df <- sds.default$syn
+    write.csv(synthpop_df, file = paste0(synthetic_data,"sds_synthpop_rows_",r,"_cols_",c,"_m_1.csv"), row.names = FALSE)
+
   }
 }
 
-write.csv(df_duration, file = paste0(duration,"duration_synthpop_500000.csv"), row.names = FALSE)
+write.csv(df_duration, file = paste0(duration,"duration_synthpop.csv"), row.names = FALSE)
 
 df_duration
 
