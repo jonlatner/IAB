@@ -46,7 +46,7 @@ setwd(main_dir)
 # Load original data ----
 # Dimensions
 rows = c(50000) # Rows/observations
-cols = c(10) # Columns/variables
+cols = c(20) # Columns/variables
 
 for (r in rows) {
   for (c in cols) {
@@ -57,8 +57,8 @@ for (r in rows) {
 # Load synthetic data ----
 
 df_sds <- data.frame()
-epochs = c(10,40,75,100)
-batch = c(500, 1000)
+epochs = c(50)
+batch = c(1000)
 
 df_sds <- data.frame()
 
@@ -139,7 +139,7 @@ df_combine$epochs <- factor(df_combine$epochs, levels = c("Original", sort(setdi
 df_graph <- ggplot(df_combine, aes(x = value, color = epochs, group = epochs)) +
   geom_density(data = subset(df_combine, epochs!="Original"), linewidth=.5)  +
   geom_histogram(data = subset(df_combine, epochs=="Original"), aes(y=after_stat(density)), color = "blue", alpha=0.1, position="identity", linewidth = .25)+
-  facet_wrap( ~ variables, scales = "free", labeller = labeller(.cols = label_both), nrow = 2) +
+  facet_wrap( ~ variables, scales = "free", labeller = labeller(.cols = label_both), ncol = 5) +
   xlab("") +
   ylab("") +
   theme_bw() +
